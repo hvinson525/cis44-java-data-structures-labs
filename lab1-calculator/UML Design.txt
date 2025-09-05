@@ -1,0 +1,13 @@
++------------------+            +----------------------+
+|  CalculatorApp   |            |     Calculator       |
++------------------+            +----------------------+
+| - scanner: Scanner           | - currentValue: double
+|                              | - pendingOperator: String
+|                              | - isFirstInput: boolean
++------------------+            +----------------------+
+| + main(String[]): void       | + setOperand(double): void
+| + isOperator(String): bool   | + setOperator(String): void
+|                              | + calculate(): void
+|                              | + getCurrentValue(): double
+|                              | - performPendingOperation(double): void
++------------------+            +----------------------+
