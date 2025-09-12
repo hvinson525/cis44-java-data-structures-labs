@@ -1,0 +1,89 @@
+<<interface>> Polygon
++ area(): double
++ perimeter(): double
+       ▲
+       |
++----------------------------+
+|                            |
+|        <<abstract>>       |
+|       Quadrilateral        |
+|----------------------------|
+| - side1: double            |
+| - side2: double            |
+| - side3: double            |
+| - side4: double            |
+|----------------------------|
+| + area(): double           |
+| + perimeter(): double      |
++----------------------------+
+       ▲
+       |
+  +------------+
+  | Rectangle  |
+  |------------|
+  | - length: double
+  | - width: double
+  |------------|
+  | + area(): double
+  | + perimeter(): double
+  +------------+
+       ▲
+       |
+   +--------+
+   | Square |
+   +--------+
+   | + area(): double
+   | + perimeter(): double
+   +--------+
+
++-----------------+
+|    Triangle     |
+|-----------------|
+| - a: double      |
+| - b: double      |
+| - c: double      |
+|-----------------|
+| + area(): double
+| + perimeter(): double
++-----------------+
+       ▲
+       |
++--------------------+
+|  IsoscelesTriangle |
+|--------------------|
+| + area(): double   |
++--------------------+
+
++----------------------+
+| EquilateralTriangle  |
+|----------------------|
+| + area(): double     |
++----------------------+
+
++-----------------+
+|   Pentagon      |
+|-----------------|
+| - side: double  |
+|-----------------|
+| + area(): double
+| + perimeter(): double
++-----------------+
+
++-----------------+
+|   Hexagon       |
+|-----------------|
+| - side: double  |
+|-----------------|
+| + area(): double
+| + perimeter(): double
++-----------------+
+
++-----------------+
+|   Octagon       |
+|-----------------|
+| - side: double  |
+|-----------------|
+| + area(): double
+| + perimeter(): double
++-----------------+
+
