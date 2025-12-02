@@ -3,7 +3,7 @@
 ## Problem Analysis
 I need to create a system to schedule jobs based on priority. Jobs with a higher priority should be executed first.
 
-Choice of Data Structure
+## Choice of Data Structure
 I will use a priority queue implemented with a max-heap and assign more important jobs a higher number.
 
 ## UML Diagram
