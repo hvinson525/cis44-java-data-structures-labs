@@ -6,7 +6,7 @@ I need to create a system to schedule jobs based on priority. Jobs with a higher
 ## Choice of Data Structure
 I will use a priority queue implemented with a max-heap and assign more important jobs a higher number.
 
-## UML Diagram
+## Original UML Diagram
 +---------------------+
 |    JobScheduler     |
 +---------------------+
@@ -48,3 +48,47 @@ I will use a priority queue implemented with a max-heap and assign more importan
 - Peek: O(1)
 - Heap construction (bulk): O(n)
 - Reasoning: Using a heap will ensure that the priority queue operations remain efficient even as the number of jobs grow. Insertion and removal are logarithmic due to the tree structure of the heap. Direct access to the highest-priority job is constant time because it's always at the root.
+
+## Phase 2 UML Diagram
++-------------------------+
+|        Job              |
++-------------------------+
+| - id: int               |
+| - priority: int         |
+| - description: String   |
++-------------------------+
+| + Job(id:int, priority:int, description:String) |
+| + getID(): int          |
+| + getPriority(): int    |
+| + getDescription(): String |
+| + compareTo(other: Job): int |
+| + toString(): String    |
++-------------------------+
+
+           ^
+           |
+           |
++-------------------------+
+|       JobHeap           |
++-------------------------+
+| - heap: ArrayList<Job>  |
++-------------------------+
+| + JobHeap()             |
+| + insert(job: Job): void|
+| + extractMax(): Job     |
+| + peek(): Job           |
+| + downHeap(index: int): void |
+| + upHeap(index: int): void   |
+| + swap(i: int, j: int): void |
+| + isEmpty(): boolean    |
+| + size(): int           |
++-------------------------+
+
+           ^
+           |
+           |
++-------------------------+
+|     SchedulerTest       |
++-------------------------+
+| (main method only)      |
++-------------------------+
