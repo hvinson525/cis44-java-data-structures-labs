@@ -92,3 +92,62 @@ I will use a priority queue implemented with a max-heap and assign more importan
 +-------------------------+
 | (main method only)      |
 +-------------------------+
+
+## Phase 3 UML Design
++--------------------------------------------------+
+|                     Job                          |
++--------------------------------------------------+
+| - id: int                                        |
+| - priority: int                                  |
+| - description: String                            |
++--------------------------------------------------+
+| + Job(id: int, priority: int, description: String) |
+| + getId(): int                                   |
+| + getPriority(): int                             |
+| + setPriority(priority: int): void               |
+| + getDescription(): String                       |
+| + compareTo(other: Job): int                     |
+| + toString(): String                             |
++--------------------------------------------------+
+| <<implements Comparable<Job>>                    |
++--------------------------------------------------+
+
+
+                     1       * 
+Job ------------------------------------> JobHeap
+      (stored in ArrayList<Job>)
+
+
++--------------------------------------------------+
+|                    JobHeap                       |
++--------------------------------------------------+
+| - heap: ArrayList<Job>                           |
++--------------------------------------------------+
+| + JobHeap()                                      |
+| + insert(job: Job): void                         |
+| + extractMax(): Job                              |
+| + peek(): Job                                    |
+| + updatePriority(jobId: int, newPriority: int): boolean |
+| + removeJob(jobId: int): boolean                 |
+| + isEmpty(): boolean                             |
+| + size(): int                                    |
+|                                                  |
+| - findIndexById(jobId: int): int                 |
+| - upHeap(index: int): void                       |
+| - downHeap(index: int): void                     |
+| - swap(i: int, j: int): void                     |
++--------------------------------------------------+
+
+
+                     uses
+SchedulerTest ------------------> JobHeap
+SchedulerTest ------------------> Job
+
+
++--------------------------------------------------+
+|                SchedulerTest                     |
++--------------------------------------------------+
+| + main(args: String[]): void                     |
++--------------------------------------------------+
+| <<console UI / program entry>>                   |
++--------------------------------------------------+
