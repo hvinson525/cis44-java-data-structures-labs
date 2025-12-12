@@ -151,3 +151,57 @@ SchedulerTest ------------------> Job
 +--------------------------------------------------+
 | <<console UI / program entry>>                   |
 +--------------------------------------------------+
+
+##Phase 4 UML Design
++------------------------------------------------------+
+|                        Job                           |
++------------------------------------------------------+
+| - id: int                                             |
+| - description: String                                 |
+| - priority: int                                       |
++------------------------------------------------------+
+| + Job(id: int, description: String, priority: int)    |
+| + getId(): int                                        |
+| + getDescription(): String                            |
+| + getPriority(): int                                  |
+| + setPriority(priority: int): void                    |
+| + compareTo(other: Job): int                          |
+| + toString(): String                                  |
++------------------------------------------------------+
+                           ▲
+                           |
+                           |  Uses Job objects
+                           |
++------------------------------------------------------+
+|                      JobHeap                          |
++------------------------------------------------------+
+| - heap: ArrayList<Job>                                |
++------------------------------------------------------+
+| + JobHeap()                                            |
+| + insert(job: Job): void                               |
+| + removeMax(): Job                                     |
+| + peek(): Job                                          |
+| + isEmpty(): boolean                                   |
+| + getSize(): int                                       |
+| - heapifyUp(i: int): void                              |
+| - heapifyDown(i: int): void                            |
+| - swap(i: int, j: int): void                           |
++------------------------------------------------------+
+                           ▲
+                           |
+                           |  Uses JobHeap to test logic
+                           |
++------------------------------------------------------+
+|                 MainTestDriver                        |
++------------------------------------------------------+
+| <<Utility class for Phase 4 testing>>                 |
++------------------------------------------------------+
+| + main(args: String[]): void                          |
+| + testInsert(): void                                  |
+| + testRemoveMax(): void                               |
+| + testPeek(): void                                    |
+| + testEmptyHeap(): void                               |
+| + testOrder(): void                                   |
+| + testDuplicatePriorities(): void                     |
+| + printResult(name: String, passed: boolean): void    |
++------------------------------------------------------+
