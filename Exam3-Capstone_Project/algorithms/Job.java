@@ -31,7 +31,7 @@ public class Job implements Comparable<Job> {
     @Override
     public int compareTo(Job other) {
         // Max-Heap: higher priority number comes first
-        return Integer.compare(other.priority, this.priority);
+        return Integer.compare(this.priority, other.priority);
     }
 
     @Override
@@ -39,3 +39,4 @@ public class Job implements Comparable<Job> {
         return "Job[ID=" + id + ", Priority=" + priority + ", Desc=" + description + "]";
     }
 }
+
